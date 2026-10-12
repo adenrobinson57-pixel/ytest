@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <button onclick="launch()">Start Auto-Close Video</button>
+  <script>
+    function launch() {
+      // REPLACE THE URL BELOW WITH YOUR YOUTUBE VIDEO URL
+      let myVideo = window.open('https://youtube.com');
+
+      let checker = setInterval(() => {
+        try {
+          if (myVideo.document.querySelector('video').ended) {
+            myVideo.close();
+            clearInterval(checker);
+          }
+        } catch(e) { 
+          // This bypasses the browser security block
+        }
+      }, 1000);
+    }
+  </script>
+</body>
+</html>
